@@ -21,7 +21,10 @@
 			method="applause"/>	
 		<aop:after-throwing
 			pointcut="execution(** spring.ch08.Performance.perform(..))"
-			method="demandRefund"/>			
+			method="demandRefund"/>	
+		<aop:around
+			pointcut="execution(** spring.ch08.Performance.perform(..))"
+			method="watchPerformacne"/>			
 		</aop:aspect>
 	</aop:config>
 </beans>
