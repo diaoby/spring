@@ -6,7 +6,7 @@ public class AudienceMain {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/ch08/audience.xml");
-		Performance performance = context.getBean(Performance.class);
+		Performance performance = (Performance) context.getBean("performance");
 		performance.perform();
 	}
 

@@ -1,19 +1,21 @@
 package spring.ch08;
 
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-public class AudienceTest {
+import spring.ch08.Performance;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={"classpath:spring/ch08/audience.xml"})
+public class AudienceTest {
+	@Autowired
+	private Performance performance;
 	@Test
 	public void test() {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/ch08/audience.xml");
-		Performance performance = context.getBean(Performance.class);
 		performance.perform();
 	}
 
